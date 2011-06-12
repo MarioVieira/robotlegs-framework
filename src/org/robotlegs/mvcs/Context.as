@@ -176,7 +176,10 @@ package org.robotlegs.mvcs
 				_commandMap = null;
 				_mediatorMap = null;
 				_viewMap = null;
-				mapInjections();
+				
+				//mapInjections() gets called by the constructor
+				//mapInjections();	
+				
 				checkAutoStartup();
 			}
 		}
