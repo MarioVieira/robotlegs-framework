@@ -177,9 +177,7 @@ package org.robotlegs.mvcs
 				_mediatorMap = null;
 				_viewMap = null;
 				
-				//mapInjections() gets called by the constructor
 				mapInjections();	
-				
 				checkAutoStartup();
 			}
 		}
