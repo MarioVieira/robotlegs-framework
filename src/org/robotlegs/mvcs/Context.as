@@ -178,7 +178,7 @@ package org.robotlegs.mvcs
 				_viewMap = null;
 				
 				//mapInjections() gets called by the constructor
-				//mapInjections();	
+				mapInjections();	
 				
 				checkAutoStartup();
 			}
