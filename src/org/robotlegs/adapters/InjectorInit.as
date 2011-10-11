@@ -8,9 +8,9 @@ package org.robotlegs.adapters
 	import org.swiftsuspenders.Injector;
 	
 	
-	public class SwiftSuspendersInjectorInit extends Injector implements IInjector
+	public class InjectorInit extends Injector implements IInjector
 	{
-		public function SwiftSuspendersInjectorInit(xmlConfig:XML = null)
+		public function InjectorInit(xmlConfig:XML = null)
 		{
 			if (xmlConfig)
 			{
@@ -29,7 +29,10 @@ package org.robotlegs.adapters
 		override public function instantiate(clazz:Class):*
 		{
 			var instance:* = super.instantiate(clazz);
-			if(instance is IInitializer) IInitializer(instance).init(this);
+			
+			if(instance is IInitializer) 
+				IInitializer(instance).init(this);
+			
 			return instance;
 		}
 		
@@ -38,7 +41,7 @@ package org.robotlegs.adapters
 		 */
 		public function createChild(applicationDomain:ApplicationDomain = null):IInjector
 		{
-			var injector:SwiftSuspendersInjectorInit = new SwiftSuspendersInjectorInit();
+			var injector:InjectorInit = new InjectorInit();
 			injector.setApplicationDomain(applicationDomain);
 			injector.setParentInjector(this);
 			return injector;

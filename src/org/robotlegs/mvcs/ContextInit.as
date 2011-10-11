@@ -3,7 +3,7 @@ package org.robotlegs.mvcs
 	import flash.display.DisplayObjectContainer;
 	import flash.events.IEventDispatcher;
 	
-	import org.robotlegs.adapters.SwiftSuspendersInjectorInit;
+	import org.robotlegs.adapters.InjectorInit;
 	import org.robotlegs.base.EventMap;
 	import org.robotlegs.core.ICommandMap;
 	import org.robotlegs.core.IEventMap;
@@ -24,18 +24,16 @@ package org.robotlegs.mvcs
 			//been playing around, not sure if will leave all the same mapping
 			injector.mapValue(IReflector, reflector);
 			injector.mapValue(IInjector, injector);
-			injector.mapValue(IEventDispatcher, eventDispatcher);
 			injector.mapValue(DisplayObjectContainer, contextView);
 			injector.mapValue(ICommandMap, commandMap);
 			injector.mapValue(IMediatorMap, mediatorMap);
 			injector.mapValue(IViewMap, viewMap);
-			injector.mapClass(IEventMap, EventMap);
 		}
 		
 		override protected function createInjector():IInjector
 		{
 			super.createInjector()
-			var injector:IInjector = new SwiftSuspendersInjectorInit();
+			var injector:IInjector = new InjectorInit();
 			injector.applicationDomain = getApplicationDomainFromContextView();
 			return injector;	
 		}
