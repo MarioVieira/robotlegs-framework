@@ -24,10 +24,12 @@ package org.robotlegs.mvcs
 			//been playing around, not sure if will leave all the same mapping
 			injector.mapValue(IReflector, reflector);
 			injector.mapValue(IInjector, injector);
+			injector.mapValue(IEventDispatcher, eventDispatcher);
 			injector.mapValue(DisplayObjectContainer, contextView);
 			injector.mapValue(ICommandMap, commandMap);
 			injector.mapValue(IMediatorMap, mediatorMap);
 			injector.mapValue(IViewMap, viewMap);
+			injector.mapClass(IEventMap, EventMap);
 		}
 		
 		override protected function createInjector():IInjector
